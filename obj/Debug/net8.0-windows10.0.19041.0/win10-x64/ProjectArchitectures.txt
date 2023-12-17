@@ -1,0 +1,1 @@
+C:\Users\alexn\source\repos\UdemyMauiCourse\UnitConverterApp\UnitConverterApp\UnitConverterApp.csproj;x64

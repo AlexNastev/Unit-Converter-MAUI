@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UnitConverterApp.MVVM.Views.ConverterView"
+             Title="{Binding QuantityName}">
+
+    <ContentPage.Resources>
+        <Color x:Key="1">#10002B</Color>
+        <Color x:Key="2">#240046</Color>
+        <Color x:Key="3">#3c096c</Color>
+        <Color x:Key="4">#5a189a</Color>
+        <Color x:Key="TextColor">#fff</Color>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="*,*">
+        <ScrollView>
+            <Grid BackgroundColor="{StaticResource 1}">
+            <VerticalStackLayout HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="Center">
+                <Entry FontSize="100"
+                       HorizontalTextAlignment="Center"
+                       Text="{Binding FromValue}"
+                       TextColor="White"
+                       ReturnCommand="{Binding ReturnCommand}"/>
+                <Picker HorizontalTextAlignment="Center"
+                        TextColor="White"
+                        ItemsSource="{Binding FromMeasures}"
+                        SelectedItem="{Binding CurrentFromMeasure}"
+                        SelectedIndexChanged="Picker_SelectedIndexChanged"
+                        VerticalTextAlignment="Center"
+                        FontSize="Medium"/>
+
+            </VerticalStackLayout>
+        </Grid>
+        </ScrollView>
+        <ScrollView Grid.Row="1">
+        <Grid 
+            BackgroundColor="{StaticResource 3}">
+            <VerticalStackLayout HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="Center">
+                <Label FontSize="100"
+                       HorizontalTextAlignment="Center"
+                       Text="{Binding ToValue, StringFormat='{0:0.##}'}"
+                       TextColor="White"/>
+                <Picker HorizontalTextAlignment="Center"
+                        TextColor="White"
+                        ItemsSource="{Binding ToMeasures}"
+                        SelectedItem="{Binding CurrentToMeasure}"
+                        SelectedIndexChanged="Picker_SelectedIndexChanged"
+                        FontSize="Medium"/>
+
+            </VerticalStackLayout>
+        </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>
